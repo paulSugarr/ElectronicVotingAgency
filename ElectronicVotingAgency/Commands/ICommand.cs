@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using ElectronicVotingValidator.Server;
+using ElectronicVotingAgency.Server;
 
-namespace Networking.Commands
+namespace ElectronicVotingAgency.Commands
 {
     public interface ICommand
     {

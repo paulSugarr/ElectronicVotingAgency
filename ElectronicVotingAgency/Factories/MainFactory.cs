@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Networking.Commands;
+using ElectronicVotingAgency.Commands;
 
 namespace Factory
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ElectronicVoting.Extensions;
-using Networking.Commands;
+using ElectronicVotingAgency.Commands;
 
 namespace Factory
 {

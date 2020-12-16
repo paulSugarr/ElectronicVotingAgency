@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Networking.Commands
+namespace ElectronicVotingAgency.Commands
 {
     public class CommandTypes
     {

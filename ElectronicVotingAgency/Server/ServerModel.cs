@@ -5,10 +5,10 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using ElectronicVotingValidator.Client;
-using Networking.Commands;
+using ElectronicVotingAgency.Client;
+using ElectronicVotingAgency.Commands;
 
-namespace ElectronicVotingValidator.Server
+namespace ElectronicVotingAgency.Server
 {
     public class ServerModel
     {

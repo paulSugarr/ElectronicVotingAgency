@@ -3,10 +3,10 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using ElectronicVoting.Extensions;
-using ElectronicVotingValidator.Server;
-using Networking.Commands;
+using ElectronicVotingAgency.Commands;
+using ElectronicVotingAgency.Server;
 
-namespace ElectronicVotingValidator.Client
+namespace ElectronicVotingAgency.Client
 {
     public class ClientModel
     {

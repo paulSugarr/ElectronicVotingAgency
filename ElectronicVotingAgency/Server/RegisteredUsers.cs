@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ElectronicVotingValidator.Server
+namespace ElectronicVotingAgency.Server
 {
     public class RegisteredUsers
     {

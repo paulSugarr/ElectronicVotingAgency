@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using ElectronicVoting.Extensions;
-using ElectronicVotingValidator.Server;
+using ElectronicVotingAgency.Server;
 
-namespace Networking.Commands
+namespace ElectronicVotingAgency.Commands
 {
     public class SendValidatorBlindSignCommand : ICommand
     {
