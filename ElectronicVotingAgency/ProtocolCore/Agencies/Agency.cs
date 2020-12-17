@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using ElectronicVoting.Cryptography;
 
@@ -15,6 +16,8 @@ namespace ElectronicVoting.Agencies
         private List<int> _usedIds;
         private Dictionary<int, byte[]> _encryptedBulletins;
 
+        private List<int> _candidates;
+
         public Agency(ICryptographyProvider cryptographyProvider, Dictionary<string, object> validatorPublicKey, int electorsCount)
         {
             _cryptographyProvider = cryptographyProvider;
@@ -23,6 +26,11 @@ namespace ElectronicVoting.Agencies
             _random = new Random();
             _usedIds = new List<int>();
             _encryptedBulletins = new Dictionary<int, byte[]>();
+            
+            _candidates = new List<int>();
+            
+            _candidates.Add(0);
+            _candidates.Add(0);
         }
 
         public int GetUniqueId()
@@ -49,7 +57,19 @@ namespace ElectronicVoting.Agencies
         {
             var info = _cryptographyProvider.Decrypt(privateKey, _encryptedBulletins[id]);
             var stringResult = Encoding.UTF8.GetString(info);
-            return Convert.ToInt32(stringResult);
+            var choice = Convert.ToInt32(stringResult);
+            _candidates[choice]++;
+            return choice;
+        }
+
+        public int[] GetCandidates()
+        {
+            return _candidates.ToArray();
+        }
+
+        public int[] GetElectors()
+        {
+            return _encryptedBulletins.Keys.ToArray();
         }
     }
 }

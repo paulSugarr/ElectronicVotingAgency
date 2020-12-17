@@ -52,7 +52,7 @@ namespace ElectronicVotingAgency.Listener
             {
                 while (true)
                 {
-                    byte[] data = new byte[1024];
+                    byte[] data = new byte[4096];
                     var builder = new StringBuilder();
                     int bytes = 0;
                     do

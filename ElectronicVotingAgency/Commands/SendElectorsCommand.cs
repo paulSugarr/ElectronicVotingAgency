@@ -1,38 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ElectronicVoting.Extensions;
 using ElectronicVotingAgency.Server;
 
 namespace ElectronicVotingAgency.Commands
 {
-    public class SendElectorIdCommand : ICommand
+    public class SendElectorsCommand : ICommand
     {
         public string Type { get; }
 
-        public int Id { get; }
+        public int[] Electors { get; }
 
-        public SendElectorIdCommand(int id)
+        public SendElectorsCommand(int[] electors)
         {
-            Type = "send_id";
-            Id = id;
+            Type = "electors";
+            Electors = electors;
         }
-        public SendElectorIdCommand(Dictionary<string, object> info)
+
+        public SendElectorsCommand(Dictionary<string, object> info)
         {
-            Type = info.GetString("type");
-            Id = info.GetInt("id");
+            Type = "electors";
+            Electors = info.GetIntArray("electors");
         }
 
         public Dictionary<string, object> GetInfo()
         {
             var result = new Dictionary<string, object>();
             result.Add("type", Type);
-            result.Add("id", Id);
+            result.Add("electors", Electors);
             return result;
         }
 
         public void Execute(AgencyContext context, string id)
         {
-            
+
         }
     }
 }
