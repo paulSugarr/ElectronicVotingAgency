@@ -35,14 +35,12 @@ namespace ElectronicVoting.Agencies
             return id;
         }
 
-        public void AddBulletin(byte[] validatorSigned, byte[] encryptedBulletin, byte[] electorSigned, Dictionary<string, object> electorsKey, int electorsId)
+        public void AddBulletin(byte[] validatorSigned, byte[] encryptedBulletin, int electorsId)
         {
             if (_cryptographyProvider.VerifyData(_validatorPublicKey, encryptedBulletin, validatorSigned))
             {
-                if (_cryptographyProvider.VerifyData(electorsKey, encryptedBulletin, electorSigned))
-                {
-                    _encryptedBulletins.Add(electorsId, encryptedBulletin);
-                }
+                Console.WriteLine("bulletin added");
+                _encryptedBulletins.Add(electorsId, encryptedBulletin);
             }
         }
     }
