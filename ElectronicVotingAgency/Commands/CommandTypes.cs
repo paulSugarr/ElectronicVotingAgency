@@ -17,6 +17,7 @@ namespace ElectronicVotingAgency.Commands
             _types.Add("validator_sign", typeof(SendElectorSignedCommand));
             _types.Add("elector_encrypt_sign", typeof(SendEncryptedCommand));
             _types.Add("send_id", typeof(SendElectorIdCommand));
+            _types.Add("send_private", typeof(GetPrivateKeyCommand));
         }
         public Type this[string id]
         {

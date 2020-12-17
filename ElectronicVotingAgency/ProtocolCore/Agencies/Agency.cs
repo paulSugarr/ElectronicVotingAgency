@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using ElectronicVoting.Cryptography;
 
 namespace ElectronicVoting.Agencies
@@ -42,6 +43,13 @@ namespace ElectronicVoting.Agencies
                 Console.WriteLine("bulletin added");
                 _encryptedBulletins.Add(electorsId, encryptedBulletin);
             }
+        }
+
+        public int DecryptBulletin(int id, Dictionary<string, object> privateKey)
+        {
+            var info = _cryptographyProvider.Decrypt(privateKey, _encryptedBulletins[id]);
+            var stringResult = Encoding.UTF8.GetString(info);
+            return Convert.ToInt32(stringResult);
         }
     }
 }
