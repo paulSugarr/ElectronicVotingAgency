@@ -71,5 +71,10 @@ namespace ElectronicVoting.Agencies
         {
             return _encryptedBulletins.Keys.ToArray();
         }
+
+        public int[] GetResults()
+        {
+            return _candidates.ToArray();
+        }
     }
 }

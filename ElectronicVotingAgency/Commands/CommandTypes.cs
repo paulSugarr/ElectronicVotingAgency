@@ -20,6 +20,8 @@ namespace ElectronicVotingAgency.Commands
             _types.Add("send_private", typeof(GetPrivateKeyCommand));
             _types.Add("electors", typeof(SendElectorsCommand));
             _types.Add("get_electors", typeof(GetElectorsCommand));
+            _types.Add("get_results", typeof(GetResultsCommand));
+            _types.Add("results", typeof(SendResultsCommand));
         }
         public Type this[string id]
         {
