@@ -23,7 +23,7 @@ namespace ElectronicVoting.Agencies
             _cryptographyProvider = cryptographyProvider;
             _validatorPublicKey = validatorPublicKey;
             _electorsCount = electorsCount;
-            _random = new Random();
+            _random = new Random(DateTimeOffset.UtcNow.Millisecond);
             _usedIds = new List<int>();
             _encryptedBulletins = new Dictionary<int, byte[]>();
             
@@ -35,10 +35,11 @@ namespace ElectronicVoting.Agencies
 
         public int GetUniqueId()
         {
-            var id = _random.Next(0, _electorsCount * _electorsCount);
-            if (_usedIds.Contains(id))
+            var n = (_electorsCount + 1) * (_electorsCount + 1);
+            var id = _random.Next(0, n);
+            while (_usedIds.Contains(id))
             {
-                return GetUniqueId();
+                id = _random.Next(0, n);
             }
             _usedIds.Add(id);
             return id;
